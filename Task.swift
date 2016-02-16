@@ -2,103 +2,34 @@
 //  Task.swift
 //  Feb11
 //
-//  Created by Retika Kumar on 2/11/16.
+//  Created by Diego Aguirre on 2/16/16.
 //  Copyright © 2016 kumar.retika. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-class Task: NSObject, NSCoding {
+@objc(Task)
+class Task: NSManagedObject {
+
+// Insert code here to add functionality to your managed object subclass
     
-    private let nameKey = "nameKey"
-    private let notesKey = "notesKey"
-    private let dueKey = "dueKey"
-    private let isCompleteKey = "isCompleteKey"
-    
-    
-    
-    var name: String
-    var notes: String?
-    var due: String?
-    var isComplete: Bool
-    
-    init(name:String, notes:String?, due:String?, isComplete: Bool) {
+    convenience init(name: String, notes: String?, due: NSDate? = nil, isComplete: Bool = false, context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+        
+        // there is no graceful way to respond to a failure on NSEntityDescription.entityForName, force unwrapping and forcing a crash is the desired behavior for this app
+        
+        // designated initializer
+        
+        let entity = NSEntityDescription.entityForName("Task", inManagedObjectContext: context)!
+        
+        self.init(entity: entity, insertIntoManagedObjectContext: context)
         self.name = name
         self.notes = notes
         self.due = due
         self.isComplete = isComplete
         
         
-        
+        // Set properties here
     }
-    @objc required init?(coder aDecoder: NSCoder) {
-        guard let  name = aDecoder.decodeObjectForKey(nameKey) as? String else {
-            self.name = " "
-            self.notes = " "
-            self.due = " "
-            self.isComplete = false
-            super.init()
-            return nil
-            
-        }
-        self.name = name
-        self.notes = aDecoder.decodeObjectForKey(notesKey) as? String
-        self.due = aDecoder.decodeObjectForKey(dueKey) as? String
-        self.isComplete = aDecoder.decodeObjectForKey(isCompleteKey) as! Bool
-        super.init()
-        
-        
-    }
-    @objc func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: nameKey)
-        aCoder.encodeObject(notes, forKey: notesKey)
-        aCoder.encodeObject(due, forKey: dueKey)
-        aCoder.encodeObject(isComplete, forKey: isCompleteKey)
-        
-    }
-    
-    
+
 }
-
-func ==(lhs: Task, rhs: Task) -> Bool{
-    return lhs.name == rhs.name && lhs.notes == rhs.notes && lhs.isComplete == rhs.isComplete
-    
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

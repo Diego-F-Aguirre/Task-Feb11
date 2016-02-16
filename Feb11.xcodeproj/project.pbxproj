@@ -12,10 +12,13 @@
 		7951920D1C6DAC10007D978E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7951920C1C6DAC10007D978E /* Assets.xcassets */; };
 		795192101C6DAC10007D978E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7951920E1C6DAC10007D978E /* LaunchScreen.storyboard */; };
 		795192181C6DAC4F007D978E /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795192171C6DAC4F007D978E /* TaskController.swift */; };
-		7951921A1C6DAC9C007D978E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795192191C6DAC9C007D978E /* Task.swift */; };
 		7951921C1C6DADE8007D978E /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7951921B1C6DADE8007D978E /* TaskListTableViewController.swift */; };
 		7951921E1C6DADFB007D978E /* TaskDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7951921D1C6DADFB007D978E /* TaskDetailTableViewController.swift */; };
 		BC33C2011C72E31900AF3D21 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C2001C72E31900AF3D21 /* ButtonTableViewCell.swift */; };
+		BC33C2601C73DAD200AF3D21 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C25F1C73DAD200AF3D21 /* Stack.swift */; };
+		BC33C2631C73DB2600AF3D21 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC33C2611C73DB2600AF3D21 /* Task.xcdatamodeld */; };
+		BC33C2661C73DC6300AF3D21 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C2641C73DC6300AF3D21 /* Task+CoreDataProperties.swift */; };
+		BC33C2671C73DC6300AF3D21 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33C2651C73DC6300AF3D21 /* Task.swift */; };
 		BCEA00131C6EA8B3003CEF65 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA00121C6EA8B3003CEF65 /* DateHelpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +30,13 @@
 		7951920F1C6DAC10007D978E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		795192111C6DAC10007D978E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		795192171C6DAC4F007D978E /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskController.swift; path = ../TaskController.swift; sourceTree = "<group>"; };
-		795192191C6DAC9C007D978E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = ../Task.swift; sourceTree = "<group>"; };
 		7951921B1C6DADE8007D978E /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		7951921D1C6DADFB007D978E /* TaskDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewController.swift; sourceTree = "<group>"; };
 		BC33C2001C72E31900AF3D21 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		BC33C25F1C73DAD200AF3D21 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		BC33C2621C73DB2600AF3D21 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
+		BC33C2641C73DC6300AF3D21 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "../Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BC33C2651C73DC6300AF3D21 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = ../Task.swift; sourceTree = "<group>"; };
 		BCEA00121C6EA8B3003CEF65 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,11 +73,14 @@
 				795192051C6DAC10007D978E /* AppDelegate.swift */,
 				795192171C6DAC4F007D978E /* TaskController.swift */,
 				7951921B1C6DADE8007D978E /* TaskListTableViewController.swift */,
+				BC33C2611C73DB2600AF3D21 /* Task.xcdatamodeld */,
 				7951921D1C6DADFB007D978E /* TaskDetailTableViewController.swift */,
-				795192191C6DAC9C007D978E /* Task.swift */,
 				BCEA00121C6EA8B3003CEF65 /* DateHelpers.swift */,
 				BC33C2001C72E31900AF3D21 /* ButtonTableViewCell.swift */,
+				BC33C25F1C73DAD200AF3D21 /* Stack.swift */,
 				795192091C6DAC10007D978E /* Main.storyboard */,
+				BC33C2641C73DC6300AF3D21 /* Task+CoreDataProperties.swift */,
+				BC33C2651C73DC6300AF3D21 /* Task.swift */,
 				7951920C1C6DAC10007D978E /* Assets.xcassets */,
 				7951920E1C6DAC10007D978E /* LaunchScreen.storyboard */,
 				795192111C6DAC10007D978E /* Info.plist */,
@@ -151,11 +160,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7951921A1C6DAC9C007D978E /* Task.swift in Sources */,
 				795192181C6DAC4F007D978E /* TaskController.swift in Sources */,
 				795192061C6DAC10007D978E /* AppDelegate.swift in Sources */,
+				BC33C2671C73DC6300AF3D21 /* Task.swift in Sources */,
 				7951921C1C6DADE8007D978E /* TaskListTableViewController.swift in Sources */,
+				BC33C2601C73DAD200AF3D21 /* Stack.swift in Sources */,
+				BC33C2661C73DC6300AF3D21 /* Task+CoreDataProperties.swift in Sources */,
 				7951921E1C6DADFB007D978E /* TaskDetailTableViewController.swift in Sources */,
+				BC33C2631C73DB2600AF3D21 /* Task.xcdatamodeld in Sources */,
 				BC33C2011C72E31900AF3D21 /* ButtonTableViewCell.swift in Sources */,
 				BCEA00131C6EA8B3003CEF65 /* DateHelpers.swift in Sources */,
 			);
@@ -308,6 +320,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BC33C2611C73DB2600AF3D21 /* Task.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BC33C2621C73DB2600AF3D21 /* Task.xcdatamodel */,
+			);
+			currentVersion = BC33C2621C73DB2600AF3D21 /* Task.xcdatamodel */;
+			path = Task.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 795191FA1C6DAC10007D978E /* Project object */;
 }

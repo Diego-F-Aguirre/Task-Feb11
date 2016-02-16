@@ -70,17 +70,17 @@ class TaskDetailTableViewController: UITableViewController {
     
     func updateTask() {
         
-        let name = nameLabel.text!
+        let name = nameLabel.text
         let due = dueDateValue
         let notes = notesTextView.text
         
         if let task = self.task {
-            task.name = name
-            task.due = String(due)
+            task.name = name!
+            task.due = due
             task.notes = notes
         } else {
             
-            let newTask = Task(name: name, notes: notes, due: String(due), isComplete: false)
+            let newTask = Task(name: name!, notes: notes, due: due)
             TaskController.sharedInstance.addTask(newTask)
         }
     }
@@ -146,7 +146,7 @@ class TaskDetailTableViewController: UITableViewController {
         nameLabel.text = task.name
         
         if let dueDate = task.due{
-            dueLabel.text = dueDate
+            dueLabel.text = String(dueDate)
         }
         
         if let notes = task.notes {

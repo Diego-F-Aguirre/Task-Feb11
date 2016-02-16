@@ -7,13 +7,24 @@
 //
 
 import Foundation
+import CoreData
+
 
 class TaskController{
     private let taskKey = "tasks"
     
     static let sharedInstance = TaskController()
     
-    private var taskArray: [Task] = []
+    private var taskArray: [Task] {
+        let request = NSFetchRequest(entityName: "Task")
+        
+        do {
+            let this = try Stack.sharedStack.managedObjectContext.executeFetchRequest(request) as! [Task]
+            return this
+        } catch {
+            return []
+        }
+    }
     
     var completedTasks: [Task] {
         return taskArray.filter({
@@ -27,33 +38,34 @@ class TaskController{
         })
     }
     
-    init() {
-        taskArray = mockTasks
-    }
+//    init() {
+//        taskArray = mockTasks
+//    }
     
     func addTask(task: Task) {
-        taskArray.append(task)
+//        taskArray.append(task)
+//        _ = Task(name: task.name!, notes: task.notes)
         saveToPersistantStorage()
     }
     
-    func removeTask(indexPath: NSIndexPath) {
-        taskArray.removeAtIndex(indexPath.row)
+    func removeTask(task: Task) {
+        task.managedObjectContext?.deleteObject(task)
         saveToPersistantStorage()
     }
     
     
     
     
-    var mockTasks: [Task] {
-        
-        let task1 =  Task(name: "Retika", notes: "Go away", due: nil, isComplete: false)
-        let task2 =  Task(name: "Diego", notes: "Come eat", due: nil, isComplete: true)
-        let task3 =  Task(name: "Kaytee", notes: "pls stay", due: nil, isComplete: true)
-        
-        let finalTask = [task1, task2, task3]
-        return finalTask
-        
-    }
+//    var mockTasks: [Task] {
+//        
+//        let task1 =  Task(name: "Retika", notes: "Go away", due: nil, isComplete: false)
+//        let task2 =  Task(name: "Diego", notes: "Come eat", due: nil, isComplete: true)
+//        let task3 =  Task(name: "Kaytee", notes: "pls stay", due: nil, isComplete: true)
+//        
+//        let finalTask = [task1, task2, task3]
+//        return finalTask
+//        
+//    }
     
     
     func filePath(key: String) -> String {
@@ -65,7 +77,8 @@ class TaskController{
     }
     
     func saveToPersistantStorage() {
-        NSKeyedArchiver.archiveRootObject(self.taskArray, toFile: self.filePath(taskKey))
+        let moc = Stack.sharedStack.managedObjectContext
+        _ = try? moc.save()
     }
     
     

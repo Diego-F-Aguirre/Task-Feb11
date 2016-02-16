@@ -66,7 +66,8 @@ class TaskListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            TaskController.sharedInstance.removeTask(indexPath)
+            let task = TaskController.sharedInstance.incompleteTasks[indexPath.row]
+            TaskController.sharedInstance.removeTask(task)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
         }
